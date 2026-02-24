@@ -18,5 +18,4 @@ In simple words, when a child element is clicked, the event moves up to the pare
 This is useful because it improves performance, reduces the number of event listeners, and also works for dynamically added elements that were not in the page before. For example, if you have many list items, you can add one event listener to the #ul instead of adding a listener to every #li
 
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
-
-
+In JavaScript, preventDefault() is used to stop the browser’s default behavior for an element. For example, clicking a link normally opens a new page, or submitting a form reloads the page. Using preventDefault() prevents these default actions from happening, while still allowing the event to run. On the other hand, stopPropagation() is used to stop the event from bubbling up to parent elements. For instance, if a child element inside a div is clicked, normally the parent’s click event would also trigger. Using stopPropagation() stops the event at the child element, preventing it from affecting its parent elements.
