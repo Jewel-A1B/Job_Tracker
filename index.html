@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Tracker</title>
+    <!-- tailwind+daisyui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="min-h-screen max-w-mx bg-base-100 mx-auto">
+    <header class="w-8/12 mx-auto flex flex-col gap-5 py-10">
+      <h1 class="text-3xl font-bold">Job Application Tracker</h1>
+      <div class="flex gap-5">
+        <div class="box flex-1 h-[97px] bg-base-200 py-5 px-5">
+          <p>Total</p>
+          <p id="total-count">8</p>
+        </div>
+        <div class="box flex-1 h-[97px] bg-base-200 py-5 px-5">
+          <p>Interview</p>
+          <p id="interview-count">0</p>
+        </div>
+        <div class="box flex-1 h-[97px] bg-base-200 py-5 px-5">
+          <p>Rejected</p>
+          <p id="rejected-count">0</p>
+        </div>
+      </div>
+      <hr class="w-full border-t border-base-300 my-5" />
+    </header>
+
+    <div class="w-8/12 mx-auto flex flex-col py-10 gap-3">
+      <div class="flex justify-between">
+        <p class="text-2xl font-bold">Available jobs</p>
+        <div class="opacity-70"><span id="jobs-span"></span> Jobs</div>
+        <script src="script/calculation.js"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var total = document.getElementById("total-count").textContent;
+            var jobsSpan = document.getElementById("jobs-span");
+            if (jobsSpan) jobsSpan.textContent = total;
+          });
+        </script>
+      </div>
+
+      <div class="btns flex gap-10 py-5">
+        <button
+          id="btn1"
+          class="btn btn-outline btn-primary selected btn-active"
+        >
+          All
+        </button>
+        <button id="btn2" class="btn btn-outline btn-primary">Interview</button>
+        <button id="btn3" class="btn btn-outline btn-primary">Rejected</button>
+      </div>
+      <!-- Card 1 -->
+      <div class="card-1 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">TechNova Ltd</p>
+            <p class="opacity-70">Frontend Developer</p>
+          </div>
+          <button id="delete1" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Remote • Full-time • $90,000 - $110,000</p>
+
+        <div>
+          <div class="int-1 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-1 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-1 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">
+            Develop modern web interfaces using React and Tailwind CSS.
+          </p>
+        </div>
+        <div class="py-2">
+          <button id="int1" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej1" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card-2 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">SkyTech Solutions</p>
+            <p class="opacity-70">Backend Developer</p>
+          </div>
+          <button id="delete2" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Onsite • Full-time • $100,000 - $140,000</p>
+
+        <div>
+          <div class="int-2 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-2 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-2 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">Build scalable APIs with Node.js and MongoDB.</p>
+        </div>
+        <div class="py-2">
+          <button id="int2" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej2" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card-3 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">CloudCore</p>
+            <p class="opacity-70">DevOps Engineer</p>
+          </div>
+          <button id="delete3" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Remote • Contract • $120,000</p>
+
+        <div>
+          <div class="int-3 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-3 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-3 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">Manage CI/CD pipelines and cloud infrastructure.</p>
+        </div>
+        <div class="py-2">
+          <button id="int3" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej3" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card-4 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">Bright AI</p>
+            <p class="opacity-70">Machine Learning Engineer</p>
+          </div>
+          <button id="delete4" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Hybrid • Full-time • $150,000</p>
+
+        <div>
+          <div class="int-4 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-4 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-4 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">Train ML models for real world applications.</p>
+        </div>
+        <div class="py-2">
+          <button id="int4" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej4" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card-5 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">NextWave</p>
+            <p class="opacity-70">Full Stack Developer</p>
+          </div>
+          <button id="delete5" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Remote • Full-time • $110,000</p>
+
+        <div>
+          <div class="int-5 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-5 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-5 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">Work with MERN stack to build scalable web apps.</p>
+        </div>
+        <div class="py-2">
+          <button id="int5" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej5" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card-6 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">CodeCrafters</p>
+            <p class="opacity-70">Java Developer</p>
+          </div>
+          <button id="delete6" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Onsite • Full-time • $95,000</p>
+
+        <div>
+          <div class="int-6 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-6 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-6 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">
+            Build enterprise applications using Java and Spring.
+          </p>
+        </div>
+        <div class="py-2">
+          <button id="int6" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej6" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="card-7 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">Pixel Studio</p>
+            <p class="opacity-70">UI/UX Designer</p>
+          </div>
+          <button id="delete7" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Remote • Freelance • $70,000</p>
+
+        <div>
+          <div class="int-7 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-7 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-7 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">Design beautiful and user-friendly interfaces.</p>
+        </div>
+        <div class="py-2">
+          <button id="int7" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej7" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="card-8 card bg-base-200 py-10 px-5">
+        <div class="flex justify-between gap-5">
+          <div>
+            <p class="font-bold">SecureNet</p>
+            <p class="opacity-70">Cyber Security Analyst</p>
+          </div>
+          <button id="delete8" class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+
+        <p class="py-5 opacity-70">Hybrid • Full-time • $125,000</p>
+
+        <div>
+          <div class="int-8 badge badge-soft badge-success text-1xl hidden">
+            INTERVIEW
+          </div>
+          <div class="not-8 badge badge-soft badge-info text-1xl">
+            NOT APPLIED
+          </div>
+          <div class="rej-8 badge badge-soft badge-error text-1xl hidden">
+            REJECTED
+          </div>
+          <p class="py-2">Monitor systems and protect company data.</p>
+        </div>
+        <div class="py-2">
+          <button id="int8" class="btn btn-outline btn-success">
+            INTERVIEW
+          </button>
+          <button id="rej8" class="btn btn-outline btn-error">REJECTED</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- no jobs avaiblable -->
+    <div
+      id="nojobs"
+      class="nojobs w-8/12 mx-auto flex flex-col py-10 justify-center items-center gap-5 bg-base-200 hidden"
+    >
+      <i class="fa-regular fa-file-lines text-5xl"></i>
+      <p class="text-2xl font-bold">No Jobs Available</p>
+      <p>Check back soon for new job opportunities</p>
+    </div>
+    <script src="script/calculation.js"></script>
+  </body>
+</html>
