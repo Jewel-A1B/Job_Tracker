@@ -9,6 +9,8 @@ getElementById, getElementsByClassName, querySelector, and querySelectorAll are 
 To create and insert a new element into the DOM in JavaScript, we usually follow a few simple steps. First, we create the element using document.createElement(). Then we add text or content to that element. Finally, we insert it into the HTML page using methods like appendChild().
 
 ### 3. What is Event Bubbling? And how does it work?
+Event Bubbling is a behavior in JavaScript where an event starts on a target element and then moves upward through its parent elements.
+In simple words, when you click on a child element, the event first happens on that child element. After that, the same event moves to its parent, then to the grandparent, and continues moving upward until it reaches the document. This upward movement of the event through the DOM is called Event Bubbling.
 
 ### 4. What is Event Delegation in JavaScript? Why is it useful?
 
