@@ -31,7 +31,7 @@ function setupStatusHandlers(idx) {
       } else {
       }
 
-      // Auto-filter based on current tab
+      // Refresh current tab view
       const selectedBtn = document.querySelector(".btn.selected");
       if (selectedBtn) {
         const btnText = selectedBtn.textContent.trim().toLowerCase();
@@ -67,7 +67,7 @@ function setupStatusHandlers(idx) {
         rejclass.classList.remove("hidden");
       }
 
-      // Auto-filter based on current tab
+      // Refresh current tab view
       const selectedBtn = document.querySelector(".btn.selected");
       if (selectedBtn) {
         const btnText = selectedBtn.textContent.trim().toLowerCase();
