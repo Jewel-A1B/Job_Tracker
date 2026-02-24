@@ -30,6 +30,15 @@ function setupStatusHandlers(idx) {
         intcount.textContent = intvalue + 1;
       } else {
       }
+
+      // Auto-filter based on current tab
+      const selectedBtn = document.querySelector(".btn.selected");
+      if (selectedBtn) {
+        const btnText = selectedBtn.textContent.trim().toLowerCase();
+        filterCards(btnText);
+        countbar(btnText);
+        updateNoJobsVisibility();
+      }
     });
   }
 
@@ -56,6 +65,15 @@ function setupStatusHandlers(idx) {
       } else {
         notclass.classList.add("hidden");
         rejclass.classList.remove("hidden");
+      }
+
+      // Auto-filter based on current tab
+      const selectedBtn = document.querySelector(".btn.selected");
+      if (selectedBtn) {
+        const btnText = selectedBtn.textContent.trim().toLowerCase();
+        filterCards(btnText);
+        countbar(btnText);
+        updateNoJobsVisibility();
       }
     });
   }
